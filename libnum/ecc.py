@@ -137,22 +137,22 @@ class Curve:
         """
         return (p[0], -p[1] % self.module)     
      
-    def power(self, p, n):     
-        """     
-        n✕P or (P + P + ... + P) n times 
-        If n < 0, firstly negate P and then take (-n)✕(-P)    
-        """     
-        if n < 0:     
-            return self.power(self.negate(p), -n)     
-        if n == 0 or self.is_null(p):     
+    def power(self, p, n):
+        """
+        n✕P or (P + P + ... + P) n times
+        If n < 0, firstly negate P and then take (-n)✕(-P)
+        """
+        if n < 0:
+            return self.power(self.negate(p), -n)
+        if n == 0 or self.is_null(p):
             return NULL_POINT
              
-        res = NULL_POINT     
-        while n:     
-            if n & 1:     
-                res = self.add(res, p)     
-            p = self.add(p, p)     
-            n >>= 1     
+        res = NULL_POINT
+        while n:
+            if n & 1:
+                res = self.add(res, p)
+            p = self.add(p, p)
+            n >>= 1
         return res
 
     def generate(self, n):
