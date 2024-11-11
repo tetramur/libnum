@@ -78,7 +78,7 @@ warning: format of factorization is now dict like {p1: e1, p2: e2, ...}
 *   .find\_points\_rand(count) - list of count random points
 *   .add(p1, p2) - p1 + p2 on elliptic curve
 *   .negate(p) - -p on elliptic curve
-*   .power(p, n) - n✕P or (P + P + ... + P) n times
+*   .power(p, n) - n✕P or (P + P + ... + P) n times. If n < 0, firstly negate P to get (-P) and then take (-n)✕(-P)
 *   .generate(n) - n✕G
 *   .get\_order(p, limit) - slow method, trying to determine order of p; limit is max order to try
 
