@@ -133,14 +133,14 @@ class Curve:
 
     def negate(self, p):
         """
-        Negation of a point or a new point Q where P + Q = O
+        Negation of a point or a new point Q = -P where P + Q = O
         """
         return (p[0], -p[1] % self.module)     
      
     def power(self, p, n):
         """
         n✕P or (P + P + ... + P) n times
-        If n < 0, firstly negate P and then take (-n)✕(-P)
+        If n < 0, firstly negate P to get -P and then take (-n)✕(-P)
         """
         if n < 0:
             return self.power(self.negate(p), -n)
